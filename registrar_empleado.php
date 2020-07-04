@@ -3,7 +3,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         if(isset($_POST["rut_usuario"])){
             $rut = $_POST["rut_usuario"];
-            $nombre = $_POST["nombre_empleado"];
+            $nombre = $_POST["nombre_usuario"];
             $edad = $_POST["edad_usuario"];
             $salario = $_POST["salario_usuario"];
             include("conexion.php");
