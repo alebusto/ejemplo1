@@ -1,19 +1,19 @@
 <?php
-    incio_sesion();
+    inicio_sesion2();
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
-        if(isset($_POST["rut_usuario"])){
-            $rut = $_POST["rut_usuario"];
-            $nombre = $_POST["nombre_usuario"];
-            $edad = $_POST["edad_usuario"];
-            $salario = $_POST["salario_usuario"];
+        if(isset($_POST["rut_usuario1"])){
+            $rut = $_POST["rut_usuario2"];
+            $nombre = $_POST["nombre_usuario3"];
+            $edad = $_POST["edad_usuario4"];
+            $salario = $_POST["salario_usuario5"];
             include("conexion.php");
             if($connection){
                 $query = OCIParse($connection, "begin ingresa_empleado(:rut, :nombre, :edad, :salario, :resultado, :mensaje); end;");
                 //Los oci_bind se encargar de vincular las variables del php con las del procedimiento
-                oci_bind_by_name($query, ':rut', $rut);
-                oci_bind_by_name($query, ':nombre',$nombre);
-                oci_bind_by_name($query, ':edad',$edad);
-                oci_bind_by_name($query, ':salario',$salario);
+                oci_bind_by_name($query, ':rut_usuario1', $rut);
+                oci_bind_by_name($query, ':nombre_usuario3',$nombre);
+                oci_bind_by_name($query, ':edad_4',$edad);
+                oci_bind_by_name($query, ':salario_usuario5',$salario);
                 //Las siguientes 2 variables son tipo OUT del procedimiento, que retornan el tipo de error y lo que dice el error
                 oci_bind_by_name($query, ':resultado',$resultado,100);
                 oci_bind_by_name($query, ':mensaje',$mensaje,100);
